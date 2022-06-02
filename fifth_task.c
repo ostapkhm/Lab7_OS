@@ -19,7 +19,7 @@ void* foo(void *arg){
         pthread_testcancel();
 
         seconds = (end.tv_sec - start.tv_sec);
-        usleep(10000);
+        usleep(100000);
         gettimeofday(&end, NULL);
         printf("Time of child thread passed %ld microseconds\n", (end.tv_sec - start.tv_sec)*1000000 + end.tv_usec - start.tv_usec);
     }

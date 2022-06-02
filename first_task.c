@@ -14,18 +14,13 @@ void* show(void* arg){
 
 int main(int argc, char *argv[])
 {
-    if(argc < 2){
-        printf("Usage: %s <string>\n", argv[0]);
-        exit(-1);
-    }
-
-    char *string = argv[1];
+    char *string1 = "Child thread";
+    char *string2 = "Parent thread";
 
     pthread_t tid;
     pthread_attr_t attr;
     pthread_attr_init(&attr);
-    pthread_create(&tid, &attr, show, string);
+    pthread_create(&tid, &attr, show, string1);
 
-    printf("Child thread is done!\n");
-    show((void **) string);
+    show((void **) string2);
 }
